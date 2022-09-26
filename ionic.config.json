@@ -1,0 +1,7 @@
+{
+  "name": "parafare-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
