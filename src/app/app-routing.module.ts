@@ -8,8 +8,16 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'welcome',
     pathMatch: 'full'
+  },
+  {
+    path: 'welcome',
+    loadChildren: () => import('./welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
+  {
+    path: 'welcome-tour',
+    loadChildren: () => import('./welcome-tour/welcome-tour.module').then( m => m.WelcomeTourPageModule)
   },
 ];
 
