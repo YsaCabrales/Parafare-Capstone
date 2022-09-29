@@ -1,0 +1,30 @@
+ion-list-header{
+    img{
+    max-height: 50%;
+    max-width: 50%;
+    }
+    ion-label{
+        margin-left: 5%;
+        font-size: larger;
+        font-weight: bold;
+        p{
+        color: #f77f22;
+        font-size: 120%;
+        font-weight: bold;
+        }
+    }
+    margin-bottom: -15%;
+}
+.card {
+    background-color: rgb(230, 175, 93); // black
+    box-shadow: none;
+  }
+
+.subheader {
+    text-align: center;
+}
+
+#signupusing{
+    text-align: center;
+    color: #2bb8ad;
+}
