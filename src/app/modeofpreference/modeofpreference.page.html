@@ -1,0 +1,30 @@
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        <h1>Select your</h1><br>
+        <h1 id="MOP">Mode of Preference</h1>
+      </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Jeepney</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Tricycle</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Bus</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Any mode</ion-label>
+    </ion-item>
+  </ion-list>
+  
+  <ion-button expand="block" (click)="home()" class="continueBtn" disabled="true" color="secondary">
+    Continue
+  </ion-button>
+</ion-content>
