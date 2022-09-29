@@ -1,35 +1,29 @@
 <ion-content>
-  <ion-slides pager="true">
+  <ion-slides pager="true" class="sldatt">
     <ion-slide>
       <div class="slide">
-        <!-- <img src="./assets/logo.png" /> -->
-        <h2>Welcome</h2>
-        <p>
-          Daily Dev Tips created this amazing sliding introduction to welcome you!
-        </p>
+        <img src="../../assets/images/navigate.png" />
+        <h2>Find your way through the city</h2>
       </div>
     </ion-slide>
 
     <ion-slide>
-      <!-- <img src="./assets/logo.png" /> -->
-      <h2>What is Daily Dev Tips?</h2>
-      <p>
-        Daily Dev Tips is a blog that provided one unique article every single day!
-      </p>
+      <img src="../../assets/images/fare.png" />
+      <h2>Pay the right fares</h2>
     </ion-slide>
 
     <ion-slide>
-      <!-- <img src="./assets/logo.png" /> -->
-      <h2>Why do you do it?</h2>
-      <p>Because I enjoy writing, it's my way of learning and improving.</p>
+      <img src="../../assets/images/time.png" />
+      <h2>Get there on time</h2>
     </ion-slide>
 
     <ion-slide>
-      <!-- <img src="./assets/logo.png" /> -->
-      <h2>Ready for it?</h2>
-      <ion-button fill="clear" routerLink="/tabs/tab1">
-        Yes, let's go <ion-icon slot="end" name="arrow-forward"></ion-icon
-      ></ion-button>
+      <img src="../../assets/images/para.png" />
+      <h2>Travel like a local</h2>
+      <ion-button size="large" fill="clear" (click)="signUp()">
+        Tara na! 
+        <ion-icon slot="end" name="arrow-forward"></ion-icon>
+      </ion-button>
     </ion-slide>
   </ion-slides>
 </ion-content>
