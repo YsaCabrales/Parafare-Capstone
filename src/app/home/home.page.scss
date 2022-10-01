@@ -1,27 +1,31 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+.menuBtn{
+  --box-shadow:none;
 }
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-modal{
+  // --ion-background-color:  #f77f22;
 }
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.drawercss{
+  ion-input{
+    background: white;
+  }
 }
-
-#container a {
-  text-decoration: none;
+h1{
+  text-align:center;
+  font-weight: bold;
+}
+ion-list-header{
+  margin-top: -15%;
+  margin-left: -5%;
+  img{
+    max-height: 50%;
+    max-width: 50%;
+  }
+  ion-label{
+    margin-left: 5%;
+    p{
+      color: #f77f22;
+      font-weight: bold;
+      }
+  }
+  margin-bottom: 10%;
 }

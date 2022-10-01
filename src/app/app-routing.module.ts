@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'verification',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
   {
@@ -32,8 +32,32 @@ const routes: Routes = [
     loadChildren: () => import('./verification/verification.module').then( m => m.VerificationPageModule)
   },
   {
-    path: 'modeofpreference',
-    loadChildren: () => import('./modeofpreference/modeofpreference.module').then( m => m.ModeofpreferencePageModule)
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'commuting-guide',
+    loadChildren: () => import('./commuting-guide/commuting-guide.module').then( m => m.CommutingGuidePageModule)
+  },
+  {
+    path: 'jeepney-guide',
+    loadChildren: () => import('./jeepney-guide/jeepney-guide.module').then( m => m.JeepneyGuidePageModule)
+  },
+  {
+    path: 'tricycle-guide',
+    loadChildren: () => import('./tricycle-guide/tricycle-guide.module').then( m => m.TricycleGuidePageModule)
+  },
+  {
+    path: 'bus-guide',
+    loadChildren: () => import('./bus-guide/bus-guide.module').then( m => m.BusGuidePageModule)
+  },
+  {
+    path: 'walk-guide',
+    loadChildren: () => import('./walk-guide/walk-guide.module').then( m => m.WalkGuidePageModule)
+  },
+  {
+    path: 'scam-guide',
+    loadChildren: () => import('./scam-guide/scam-guide.module').then( m => m.ScamGuidePageModule)
   },
 ];
 

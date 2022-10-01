@@ -1,20 +1,70 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+<ion-menu contentId="main-content">
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-list-header>
+        <img src="../../assets/icon/Parafarelogo.png" />
+        <ion-label color="primary">
+          Juan dela Cruz
+          <p>
+            juan.delacrux123@gmail.com
+          </p>
+        </ion-label>
+      </ion-list-header>
+      <ion-item button (click)="commutingGuide()">
+        <ion-icon name="book" slot="start" color="secondary" ></ion-icon>
+        Commuting Guide
+      </ion-item>
+      <ion-item button>
+        <ion-icon name="bookmark" slot="start" color="secondary"></ion-icon>
+        Saved Searches
+      </ion-item>
+      <ion-item button (click)="goToSettings()">
+        <ion-icon name="settings" slot="start" color="secondary"></ion-icon>
+        Settings
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <ion-content class="ion-padding">
+    Tap the button in the toolbar to open the menu.
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+      <ion-fab-button id="open-directions" color="secondary">
+        <ion-icon name="map"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-modal #modal trigger="open-directions" [initialBreakpoint]="0.50" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+      <ng-template>
+        <ion-content>
+          <h1 style="color: #f77f22;" >Search Directions</h1>
+          <ion-list class="drawercss">
+            <ion-item>
+              <ion-input placeholder="Origin"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input placeholder="Destination"></ion-input>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-icon name="time-outline" slot="start"></ion-icon>
+              <ion-select interface="popover" placeholder="Departure/Arrival Time">
+                <ion-select-option value="leavenow">Leaving Now</ion-select-option>
+                <ion-select-option value="later">Later</ion-select-option>
+                <ion-select-option value="arrive">Arrive by</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+          <ion-button expand="block">
+            Tara na!
+          </ion-button>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </ion-content>
+</div>

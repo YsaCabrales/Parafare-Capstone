@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Settings</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <img src="../../assets/icon/Parafarelogo.png" />
+      <ion-label>
+        Become a True Pasahero.<br><br>
+        <p>Parafare provides the best public transportation directions to help you in your commute.</p>
+      </ion-label>
+    </ion-list-header>
+    <ion-item button (click)="changeUsername()">
+      <ion-icon name="person-outline" color="primary"></ion-icon>
+      &nbsp;Change Username
+    </ion-item>
+    <ion-item button (click)="changeUsername()">
+      <ion-icon name="trash-outline" color="primary"></ion-icon>
+      &nbsp;Delete Account
+    </ion-item>
+    <ion-item button (click)="Logout()">
+      <ion-icon name="exit-outline" color="primary"></ion-icon>
+      &nbsp;Logout
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item button>
+      <ion-icon name="bug-outline" color="primary"></ion-icon>
+      &nbsp;Report an issue
+    </ion-item>
+    <ion-item button>
+      <ion-icon name="newspaper-outline" color="primary"></ion-icon>
+      &nbsp;Terms of Use
+    </ion-item>
+    <ion-item button>
+      <ion-icon name="newspaper-outline" color="primary"></ion-icon>
+      &nbsp;Privacy Policy
+    </ion-item>
+  </ion-list>
+</ion-content>

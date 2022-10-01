@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="tertiary">
+    <ion-title>Commuting Guide</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="jeepneyGuide()">
+          Jeepney
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="tertiary" expand="block" (click)="tricycleGuide()">
+          Tricycle
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button color="secondary" expand="block" (click)="busGuide()">
+          Bus
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="warning" expand="block" (click)="walkGuide()">
+          Walk
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button color="danger" expand="block" (click)="scamGuide()">
+          Scams and Dangers
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

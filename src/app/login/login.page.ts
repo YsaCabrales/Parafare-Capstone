@@ -17,4 +17,8 @@ export class LoginPage implements OnInit {
     this.route.navigate(['/sign-up']);
   }
 
+  home() {
+    this.route.navigate(['/home']);
+  }
+
 }

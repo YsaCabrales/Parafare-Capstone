@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ModeofpreferencePageRoutingModule } from './modeofpreference-routing.module';
+import { JeepneyGuidePageRoutingModule } from './jeepney-guide-routing.module';
 
-import { ModeofpreferencePage } from './modeofpreference.page';
+import { JeepneyGuidePage } from './jeepney-guide.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ModeofpreferencePageRoutingModule
+    JeepneyGuidePageRoutingModule
   ],
-  declarations: [ModeofpreferencePage]
+  declarations: [JeepneyGuidePage]
 })
-export class ModeofpreferencePageModule {}
+export class JeepneyGuidePageModule {}

@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ModeofpreferencePage } from './modeofpreference.page';
+import { CommutingGuidePage } from './commuting-guide.page';
 
-describe('ModeofpreferencePage', () => {
-  let component: ModeofpreferencePage;
-  let fixture: ComponentFixture<ModeofpreferencePage>;
+describe('CommutingGuidePage', () => {
+  let component: CommutingGuidePage;
+  let fixture: ComponentFixture<CommutingGuidePage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModeofpreferencePage ],
+      declarations: [ CommutingGuidePage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ModeofpreferencePage);
+    fixture = TestBed.createComponent(CommutingGuidePage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
