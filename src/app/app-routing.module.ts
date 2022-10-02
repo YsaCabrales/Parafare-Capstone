@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'welcome',
+    redirectTo: 'maps-apitest',
     pathMatch: 'full'
   },
   {
@@ -58,6 +58,10 @@ const routes: Routes = [
   {
     path: 'scam-guide',
     loadChildren: () => import('./scam-guide/scam-guide.module').then( m => m.ScamGuidePageModule)
+  },
+  {
+    path: 'maps-apitest',
+    loadChildren: () => import('./maps-apitest/maps-apitest.module').then( m => m.MapsAPItestPageModule)
   },
 ];
 

@@ -13,20 +13,20 @@
       <ion-label color="primary" class="subheader">Log in to your Account</ion-label>
     </ion-item>
       <ion-item>
-        <ion-label position="stacked">Username</ion-label>
-        <ion-input placeholder="Enter Username"></ion-input>
+        <ion-label position="stacked">Email:</ion-label>
+        <ion-input placeholder="Enter Email" type="text" [(ngModel)]="user.email"></ion-input>
       </ion-item>
       <ion-item >
         <ion-label position="stacked">Password</ion-label>
-        <ion-input placeholder="Enter Password" type="Password"></ion-input>
+        <ion-input placeholder="Enter Password" type="Password" [(ngModel)]="user.password"></ion-input>
         </ion-item>
       <ion-item lines="none">
-        <ion-button slot="end" fill="clear" size="small" >
+        <ion-button slot="end" fill="clear" size="small" (click)="resetPassword()">
           Forgot your password?
         </ion-button>
       </ion-item>
   </ion-list>
-  <ion-button expand="block" color="secondary" (click)="home()">
+  <ion-button expand="block" color="secondary" (click)="loginToAccount()">
     Log In
   </ion-button>
   <p id="signupusing">or Log in using</p>
@@ -36,5 +36,8 @@
 <!-- </ion-card> -->
   <ion-button fill="clear" size="small" expand="block" (click)="signUp()">
     Create an account here
+  </ion-button>
+  <ion-button fill="clear" size="small" expand="block" (click)="guestLogin()">
+    Sign in as Guest
   </ion-button>
 </ion-content>

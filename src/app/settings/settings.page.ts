@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-settings',
@@ -8,7 +10,11 @@ import { AlertController } from '@ionic/angular';
 })
 export class SettingsPage implements OnInit {
 
-  constructor(private alertController: AlertController) { }
+  constructor(
+    private alertController: AlertController,
+    private route: Router,
+    private authOb: AngularFireAuth,
+    ) { }
 
   ngOnInit() {
   }
@@ -27,5 +33,17 @@ export class SettingsPage implements OnInit {
 
     await alert.present();
   }
+
+  logout() {
+    this.authOb.signOut().then( ()=>{
+
+      this.route.navigate(['/login']);
+
+    }).catch(e =>{
+      console.log(e);
+    })
+  }
 }
+
+
 
