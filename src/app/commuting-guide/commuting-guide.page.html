@@ -12,34 +12,40 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-button expand="block" (click)="jeepneyGuide()">
-          Jeepney
-        </ion-button>
+        <ion-card color="primary" (click)="jeepneyGuide()">
+          <img src="../../assets/icon/jeepney-icon.png" />
+          <p>Jeepney</p>
+        </ion-card>
       </ion-col>
       <ion-col>
-        <ion-button color="tertiary" expand="block" (click)="tricycleGuide()">
-          Tricycle
-        </ion-button>
+        <ion-card color="tertiary" (click)="tricycleGuide()">
+          <img src="../../assets/icon/tricycle-icon.png" />
+          <p>Tricycle</p>
+        </ion-card>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button color="secondary" expand="block" (click)="busGuide()">
-          Bus
-        </ion-button>
+        <ion-card color="secondary" (click)="busGuide()">
+          <img src="../../assets/icon/bus-icon.png" />
+          <p>Bus</p>
+        </ion-card>
       </ion-col>
       <ion-col>
-        <ion-button color="warning" expand="block" (click)="walkGuide()">
-          Walk
-        </ion-button>
+        <ion-card color="warning" expand="block" (click)="walkGuide()">
+          <img src="../../assets/icon/walk-icon.png" />
+          <p>Walk</p>
+        </ion-card>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button color="danger" expand="block" (click)="scamGuide()">
-          Scams and Dangers
-        </ion-button>
+        <ion-card color="danger" (click)="scamGuide()">
+          <img src="../../assets/icon/danger-icon.png" />
+          <b>Scams & Dangers</b>
+        </ion-card>
       </ion-col>
+      <ion-col></ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

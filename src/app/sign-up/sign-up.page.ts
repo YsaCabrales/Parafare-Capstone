@@ -12,6 +12,8 @@ import { ToastController } from '@ionic/angular';
 export class SignUpPage implements OnInit {
 
   user:any = {};
+  pwdIcon = "eye-off-outline";
+  showPwd = false;
 
   constructor(
     private route: Router,
@@ -25,6 +27,14 @@ export class SignUpPage implements OnInit {
 
   logIn() {
     this.route.navigate(['/login']);
+  }
+
+  terms() {
+    this.route.navigate(['/term-and-conditions']);
+  }
+
+  privacy() {
+    this.route.navigate(['/privacy-policy']);
   }
 
   registerAccount() {
@@ -62,6 +72,11 @@ export class SignUpPage implements OnInit {
       message: error,
       duration: 4000,
     }).then(res => res.present());
+  }
+
+  togglePwd() {
+    this.showPwd = !this.showPwd;
+    this.pwdIcon = this.showPwd ? "eye-outline": "eye-off-outline";
   }
 
 }

@@ -1,3 +1,4 @@
+<!-- sidebar menu -->
 <ion-menu contentId="main-content">
   <ion-content class="ion-padding">
     <ion-list>
@@ -25,6 +26,7 @@
     </ion-list>
   </ion-content>
 </ion-menu>
+<!-- main content -->
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar color="primary">
@@ -33,13 +35,14 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
-    Tap the button in the toolbar to open the menu.
+  <ion-content >
+    <div id="map" class="map"></div>
     <ion-fab vertical="bottom" horizontal="center" slot="fixed">
       <ion-fab-button id="open-directions" color="secondary">
         <ion-icon name="map"></ion-icon>
       </ion-fab-button>
     </ion-fab>
+    <!-- search directions drawer -->
     <ion-modal #modal trigger="open-directions" [initialBreakpoint]="0.50" [breakpoints]="[0, 0.25, 0.5, 0.75]">
       <ng-template>
         <ion-content>

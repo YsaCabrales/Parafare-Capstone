@@ -11,7 +11,8 @@ import View from 'ol/View';
 })
 export class MapsAPItestPage implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) { }
 
   ngOnInit() {
     var map = new Map({
@@ -22,7 +23,8 @@ export class MapsAPItestPage implements OnInit {
       target: 'map',
       view: new View({
         center: [0, 0],
-        zoom: 2,
+        maxZoom: 18,
+        zoom: 12
       }),
     });
 

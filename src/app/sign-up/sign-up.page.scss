@@ -28,3 +28,19 @@ ion-list-header{
     text-align: center;
     color: #2bb8ad;
 }
+
+.agreeto {
+    margin-right: 5%;
+}
+ion-content {
+    --background: #F7F7FA;
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &::part(background) {
+        bottom: -28%;
+    }
+  }

@@ -1,9 +1,6 @@
 .menuBtn{
   --box-shadow:none;
 }
-ion-modal{
-  // --ion-background-color:  #f77f22;
-}
 .drawercss{
   ion-input{
     background: white;
@@ -28,4 +25,10 @@ ion-list-header{
       }
   }
   margin-bottom: 10%;
+}
+.map {
+  height: 100%;
+  display: flex;
+  align-items: center; //centraliza horizontalmente
+  justify-content: center; //centraliza verticalmente
 }

@@ -8,7 +8,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'maps-apitest',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
   {
@@ -62,6 +62,14 @@ const routes: Routes = [
   {
     path: 'maps-apitest',
     loadChildren: () => import('./maps-apitest/maps-apitest.module').then( m => m.MapsAPItestPageModule)
+  },
+  {
+    path: 'term-and-conditions',
+    loadChildren: () => import('./term-and-conditions/term-and-conditions.module').then( m => m.TermAndConditionsPageModule)
+  },
+  {
+    path: 'privacy-policy',
+    loadChildren: () => import('./privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
   },
 ];
 

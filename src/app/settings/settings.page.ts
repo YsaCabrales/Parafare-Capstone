@@ -43,6 +43,14 @@ export class SettingsPage implements OnInit {
       console.log(e);
     })
   }
+
+  terms() {
+    this.route.navigate(['/term-and-conditions']);
+  }
+
+  privacy() {
+    this.route.navigate(['/privacy-policy']);
+  }
 }
 
 

@@ -17,9 +17,11 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
   imports: [
     BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule, AngularFireDatabaseModule
+    AngularFireAuthModule, AngularFireDatabaseModule,
 ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

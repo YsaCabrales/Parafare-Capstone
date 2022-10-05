@@ -12,6 +12,8 @@ import { AlertController, ToastController } from '@ionic/angular';
 export class LoginPage implements OnInit {
 
   user:any = {};
+  pwdIcon = "eye-off-outline";
+  showPwd = false;
 
   constructor(
     private route: Router,
@@ -106,5 +108,10 @@ export class LoginPage implements OnInit {
         // ...
       });
     });
+  }
+
+  togglePwd() {
+    this.showPwd = !this.showPwd;
+    this.pwdIcon = this.showPwd ? "eye-outline": "eye-off-outline";
   }
 }
