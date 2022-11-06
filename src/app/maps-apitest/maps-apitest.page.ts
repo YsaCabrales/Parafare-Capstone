@@ -23,7 +23,7 @@ export class MapsAPItestPage implements OnInit {
       target: 'map',
       view: new View({
         center: [0, 0],
-        maxZoom: 18,
+        maxZoom: 5,
         zoom: 12
       }),
     });
