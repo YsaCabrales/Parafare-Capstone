@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
 
   loginToAccount() {
     this.authOb.signInWithEmailAndPassword(this.user.email, this.user.password). then( (res)=>{
-      console.log(res);
+      // console.log(res);
 
       this.route.navigate(['/home']);
 

@@ -2,14 +2,16 @@
 <ion-menu contentId="main-content">
   <ion-content class="ion-padding">
     <ion-list>
-      <ion-list-header>
+      <ion-list-header *ngIf="users.length != 0">
         <img src="../../assets/icon/Parafarelogo.png" />
-        <ion-label color="primary">
-          Juan dela Cruz
-          <p>
-            juan.delacrux123@gmail.com
-          </p>
-        </ion-label>
+        <ion-item *ngFor="let user of users">
+          <ion-label color="primary">
+            {{user.username}}
+            <p>
+            {{user.email}}
+            </p>
+          </ion-label>
+        </ion-item>
       </ion-list-header>
       <ion-item button (click)="commutingGuide()">
         <ion-icon name="book" slot="start" color="secondary" ></ion-icon>
@@ -35,8 +37,8 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
-  <ion-content >
-    <div id="map" class="map"></div>
+  <ion-content>
+    <div id="map" class="map" style="height: 100%;"></div>
     <ion-fab vertical="bottom" horizontal="center" slot="fixed">
       <ion-fab-button id="open-directions" color="secondary">
         <ion-icon name="map"></ion-icon>
@@ -49,10 +51,11 @@
           <h1 style="color: #f77f22;" >Search Directions</h1>
           <ion-list class="drawercss">
             <ion-item>
-              <ion-input placeholder="Origin"></ion-input>
+              <ion-input placeholder="Origin" [clearInput]="true"></ion-input>
+              <ion-button color="secondary" class="locatebtn" item-right ><ion-icon name="locate"></ion-icon></ion-button>
             </ion-item>
             <ion-item>
-              <ion-input placeholder="Destination"></ion-input>
+              <ion-input placeholder="Destination" [clearInput]="true"></ion-input>
             </ion-item>
             <ion-item lines="none">
               <ion-icon name="time-outline" slot="start"></ion-icon>

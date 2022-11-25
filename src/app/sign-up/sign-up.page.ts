@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -20,6 +21,7 @@ export class SignUpPage implements OnInit {
     private authOb: AngularFireAuth,
     private rtDB: AngularFireDatabase,
     private toast: ToastController,
+    private fsDB: AngularFirestore
     ) { }
 
   ngOnInit() {
@@ -44,7 +46,7 @@ export class SignUpPage implements OnInit {
 
         console.log(res);
 
-        this.rtDB.object('users/' + res.user.uid).set({
+        this.fsDB.collection('users').doc(res.user.uid).set({
           username: this.user.username,
           email: this.user.email,
           createdAt: Date.now(),
