@@ -13,6 +13,9 @@ export const environment = {
     appId: "1:1014054958561:web:b83b5f775fd5a7758e4ea0",
     measurementId: "G-B2TEY4EMY5",
     databaseURL: "https://parafare-fa980-default-rtdb.asia-southeast1.firebasedatabase.app"
+  },
+  mapbox: {
+    accessToken: "pk.eyJ1IjoibmFneXlzYSIsImEiOiJjbGF3bWl2YTgwMnFwM3BtZmFldjk4OWdpIn0.b514twNwRSxm7TYe6rzBSg"
   }
 };
 

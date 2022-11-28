@@ -1,25 +1,26 @@
 <!-- sidebar menu -->
+
 <ion-menu contentId="main-content">
   <ion-content class="ion-padding">
     <ion-list>
-      <ion-list-header *ngIf="users.length != 0">
+      <ion-list-header class="header" *ngIf="users.length != 0">
         <img src="../../assets/icon/Parafarelogo.png" />
         <ion-item *ngFor="let user of users">
-          <ion-label color="primary">
+          <!-- <ion-label color="primary">
             {{user.username}}
             <p>
             {{user.email}}
             </p>
-          </ion-label>
+          </ion-label> -->
         </ion-item>
       </ion-list-header>
       <ion-item button (click)="commutingGuide()">
         <ion-icon name="book" slot="start" color="secondary" ></ion-icon>
         Commuting Guide
       </ion-item>
-      <ion-item button>
-        <ion-icon name="bookmark" slot="start" color="secondary"></ion-icon>
-        Saved Searches
+      <ion-item button (click)="fareGuide()">
+        <ion-icon name="cash-outline" slot="start" color="secondary"></ion-icon>
+        Fare Guide
       </ion-item>
       <ion-item button (click)="goToSettings()">
         <ion-icon name="settings" slot="start" color="secondary"></ion-icon>
@@ -37,38 +38,46 @@
       </ion-buttons>
     </ion-toolbar>
   </ion-header>
+  
   <ion-content>
-    <div id="map" class="map" style="height: 100%;"></div>
+    <div id="map" class="map"></div>
+    
+
     <ion-fab vertical="bottom" horizontal="center" slot="fixed">
       <ion-fab-button id="open-directions" color="secondary">
         <ion-icon name="map"></ion-icon>
       </ion-fab-button>
     </ion-fab>
-    <!-- search directions drawer -->
+
     <ion-modal #modal trigger="open-directions" [initialBreakpoint]="0.50" [breakpoints]="[0, 0.25, 0.5, 0.75]">
       <ng-template>
         <ion-content>
-          <h1 style="color: #f77f22;" >Search Directions</h1>
+          <h1 style="color: #f77f22;" >Routes</h1>
           <ion-list class="drawercss">
             <ion-item>
-              <ion-input placeholder="Origin" [clearInput]="true"></ion-input>
-              <ion-button color="secondary" class="locatebtn" item-right ><ion-icon name="locate"></ion-icon></ion-button>
+              <h4>Jeepney Routes</h4>
             </ion-item>
-            <ion-item>
-              <ion-input placeholder="Destination" [clearInput]="true"></ion-input>
+            <ion-item button (click)='showJeepneyRoute("routebauanbatangas")'>
+              <ion-icon name="ellipse" class="btgbauan"></ion-icon>
+                Batangas - Bauan
             </ion-item>
-            <ion-item lines="none">
-              <ion-icon name="time-outline" slot="start"></ion-icon>
-              <ion-select interface="popover" placeholder="Departure/Arrival Time">
-                <ion-select-option value="leavenow">Leaving Now</ion-select-option>
-                <ion-select-option value="later">Later</ion-select-option>
-                <ion-select-option value="arrive">Arrive by</ion-select-option>
-              </ion-select>
+            <ion-item button (click)='showJeepneyRoute("routebalagtasbatangasAM")'>
+              <ion-icon name="ellipse" class="btgblg"></ion-icon>
+              Batangas - Balagtas
+            </ion-item>
+            <ion-item button (click)='showJeepneyRoute("routealangilanbatangasAM")'>
+              <ion-icon name="ellipse" class="btgaln"></ion-icon>
+              Batangas - Alangilan
+            </ion-item>
+            <ion-item button (click)='showJeepneyRoute("routecaptoliobatangasAM")'>
+              <ion-icon name="ellipse" class="btgcpt"></ion-icon>
+              Batangas - Capitolio
+            </ion-item>
+            <ion-item button (click)='showJeepneyRoute("routebaletebatangasAM")'>
+              <ion-icon name="ellipse" class="btgblt"></ion-icon>
+              Batangas - Balete
             </ion-item>
           </ion-list>
-          <ion-button expand="block">
-            Tara na!
-          </ion-button>
         </ion-content>
       </ng-template>
     </ion-modal>

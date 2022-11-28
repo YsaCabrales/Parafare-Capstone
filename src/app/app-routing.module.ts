@@ -71,6 +71,10 @@ const routes: Routes = [
     path: 'privacy-policy',
     loadChildren: () => import('./privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
   },
+  {
+    path: 'fareguide',
+    loadChildren: () => import('./fareguide/fareguide.module').then( m => m.FareguidePageModule)
+  },
 ];
 
 @NgModule({

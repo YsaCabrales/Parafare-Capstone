@@ -10,7 +10,7 @@ h1{
   text-align:center;
   font-weight: bold;
 }
-ion-list-header{
+.header{
   margin-top: -15%;
   margin-left: -5%;
   img{
@@ -28,5 +28,29 @@ ion-list-header{
 }
 #map {
   width: 100%;
-  height: 100%;
+  height: 95%;
+  margin-top: 5%;
+}
+.marker {
+  background-color: #f77f22;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.btgbauan {
+  color: blue;
+}
+.btgblg {
+  color: #00FF00;
+}
+.btgaln {
+  color: #FFFF00;
+}
+.btgcpt {
+  color: #000000;
+}
+.btgblt {
+  color: #ff0000;
 }
