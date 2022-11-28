@@ -57,11 +57,11 @@ export class HomePage {
       this.loadMap();
     }
 
-
+    
     loadMap() {
       const bounds = [
         [121.006948, 13.735103], // Southwest coordinates
-        [121.108504, 13.851841] // Northeast coordinates
+        [121.085904, 13.798506] // Northeast coordinates
         ];
 
       const bauanbatangasAM = [
@@ -347,7 +347,7 @@ export class HomePage {
         [121.090047, 13.850769],
         [121.089675, 13.850010],
         [121.089431, 13.849190],
-        [],
+        [121.089134, 13.848362],
         [],
         [],
         [],
@@ -717,6 +717,26 @@ export class HomePage {
             'geometry': {
             'type': 'Point',
             'coordinates': [121.007472, 13.790346]
+            }
+          },
+          { //diversion
+            'type': 'Feature',
+            'properties': {
+              'iconSize': [35, 50]
+            },
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [121.051130, 13.771005]
+            }
+          },
+          { //bauan citimart
+            'type': 'Feature',
+            'properties': {
+              'iconSize': [35, 50]
+            },
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [121.011445, 13.790384]
             }
           },
 
