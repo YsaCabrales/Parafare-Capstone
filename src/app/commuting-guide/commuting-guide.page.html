@@ -1,51 +1,41 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar color="tertiary">
     <ion-title>Commuting Guide</ion-title>
-    <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
-    </ion-buttons>
+    <ion-back-button slot="start"></ion-back-button>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
+  
+  <div class="contentdiv">
   <ion-grid>
     <ion-row>
-      <ion-col>
-        <ion-card color="primary" (click)="jeepneyGuide()">
-          <img src="../../assets/icon/jeepney-icon.png" />
-          <p>Jeepney</p>
-        </ion-card>
+      <ion-col button  ion-ripple-effect type="bounded" (click)="jeepneyGuide()"class="jeepneybtn">
+        <img src="../../assets/icon/jeepney-icon.png" />
+        <p>Jeepney</p>
       </ion-col>
-      <ion-col>
-        <ion-card color="tertiary" (click)="tricycleGuide()">
-          <img src="../../assets/icon/tricycle-icon.png" />
-          <p>Tricycle</p>
-        </ion-card>
+      <ion-col class="tricyclebtn" (click)="tricycleGuide()">
+        <p><img src="../../assets/icon/tricycle-icon.png" />
+        Tricycle</p>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <ion-card color="secondary" (click)="busGuide()">
-          <img src="../../assets/icon/bus-icon.png" />
-          <p>Bus</p>
-        </ion-card>
+      <ion-col class="busbtn" (click)="busGuide()">
+        <img src="../../assets/icon/bus-icon.png" />
+        <p>Bus</p>
       </ion-col>
-      <ion-col>
-        <ion-card color="warning" expand="block" (click)="walkGuide()">
+      <ion-col class="walkbtn" (click)="walkGuide()">
           <img src="../../assets/icon/walk-icon.png" />
           <p>Walk</p>
-        </ion-card>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-        <ion-card color="danger" (click)="scamGuide()">
+      <ion-col col-span="2" class="scamsbtn" (click)="scamGuide()">
           <img src="../../assets/icon/danger-icon.png" />
-          <b>Scams & Dangers</b>
-        </ion-card>
+          <p>Scams & Dangers</p>
       </ion-col>
-      <ion-col></ion-col>
     </ion-row>
   </ion-grid>
+  </div>
 </ion-content>
+

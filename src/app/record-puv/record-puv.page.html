@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Record PUV Info</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <img src="../../assets/icon/file-security.png" />
+      <ion-label>
+        When riding a public transportation vehicle, record their information here.<br><br>
+        This way you can ensure your safety or report concerns to authorities.
+      </ion-label>
+    </ion-list-header>
+    <ion-item lines="none">
+      <b>PUV Information</b>
+    </ion-item>
+    <ion-item>
+      <ion-select interface="popover" placeholder="PUV Type" [(ngModel)]="puvtype">
+        <ion-select-option value="jeepney">Jeepney</ion-select-option>
+        <ion-select-option value="tricycle">Tricycle</ion-select-option>
+        <ion-select-option value="van">Van</ion-select-option>
+        <ion-select-option value="bus">Bus</ion-select-option>
+        <ion-select-option value="other">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Driver Name</ion-label>
+      <ion-input [(ngModel)]="drivername"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">License Plate Number</ion-label>
+      <ion-input [(ngModel)]="license"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" color="secondary" (click)="recordPUV()" [disabled]="!(license || drivername)">
+    Record PUV Info
+  </ion-button>
+  <ion-button fill="clear" size="small" expand="full" (click)="seeRecords()">
+    See PUV Records
+  </ion-button>
+</ion-content>

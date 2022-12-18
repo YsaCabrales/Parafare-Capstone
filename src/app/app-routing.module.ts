@@ -75,6 +75,14 @@ const routes: Routes = [
     path: 'fareguide',
     loadChildren: () => import('./fareguide/fareguide.module').then( m => m.FareguidePageModule)
   },
+  {
+    path: 'record-puv',
+    loadChildren: () => import('./record-puv/record-puv.module').then( m => m.RecordPuvPageModule)
+  },
+  {
+    path: 'puvrecords',
+    loadChildren: () => import('./puvrecords/puvrecords.module').then( m => m.PUVrecordsPageModule)
+  },
 ];
 
 @NgModule({

@@ -17,6 +17,13 @@ export class SettingsPage implements OnInit {
     ) { }
 
   ngOnInit() {
+    this.authOb.authState.subscribe(user => {
+      if (user) {
+        // User is authenticated, do something
+      } else {
+        // User is not authenticated, do something else
+      }
+    });
   }
 
   async changeUsername() {

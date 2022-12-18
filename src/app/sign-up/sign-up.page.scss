@@ -5,14 +5,16 @@ ion-list-header{
     }
     ion-label{
         margin-left: 5%;
-        font-size: larger;
+        font-size: x-large;
         font-weight: bold;
+        font-family: 'Batangas';
         p{
         color: #f77f22;
-        font-size: 130%;
+        font-size: xx-large;
         font-weight: bold;
         }
     }
+    margin-top: -10%;
     margin-bottom: -15%;
 }
 .card {
@@ -41,6 +43,6 @@ ion-content {
       display: none;
     }
     &::part(background) {
-        bottom: -28%;
+        bottom: -5%;
     }
   }

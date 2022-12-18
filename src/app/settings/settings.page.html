@@ -16,21 +16,21 @@
         <p>Parafare provides the best public transportation directions to help you in your commute.</p>
       </ion-label>
     </ion-list-header>
-    <ion-item button (click)="changeUsername()">
+    <ion-item *ngIf="!user" button (click)="logout()">
+      <ion-icon name="exit-outline" color="primary"></ion-icon>
+      &nbsp;Sign In
+    </ion-item>
+    <ion-item *ngIf="user" button (click)="changeUsername()">
       <ion-icon name="person-outline" color="primary"></ion-icon>
       &nbsp;Change Username
     </ion-item>
-    <ion-item button (click)="changeUsername()">
-      <ion-icon name="trash-outline" color="primary"></ion-icon>
-      &nbsp;Delete Account
-    </ion-item>
-    <ion-item button (click)="logout()">
+    <ion-item *ngIf="user" button (click)="logout()">
       <ion-icon name="exit-outline" color="primary"></ion-icon>
       &nbsp;Logout
     </ion-item>
   </ion-list>
+
   <ion-list>
-    
     <ion-item button (click)="terms()">
       <ion-icon name="newspaper-outline" color="primary"></ion-icon>
       &nbsp;Terms and Conditions

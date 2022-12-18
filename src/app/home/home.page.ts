@@ -16,8 +16,7 @@ declare var mapboxgl: any;
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
-  users: any = [];
+  
   @ViewChild("stepsModal")
   stepsModal: IonModal;
   openModal: boolean = false;
@@ -37,6 +36,7 @@ export class HomePage {
     },
     trackUserLocation: true
   });
+  dataFound = true;
 
   constructor(
     private alertController: AlertController,
@@ -53,10 +53,12 @@ export class HomePage {
       this.userData();
     }
 
+    userData(){
+    }
+
     ionViewDidEnter() {
       this.loadMap();
     }
-
     
     loadMap() {
       const bounds = [
@@ -343,26 +345,58 @@ export class HomePage {
       ]
 
       const lipabatangasAM = [
-        [121.090257, 13.851101],
-        [121.090047, 13.850769],
-        [121.089675, 13.850010],
-        [121.089431, 13.849190],
-        [121.089134, 13.848362],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
-        [],
+        [121.072513, 13.800761],
+        [121.071024, 13.797808],
+        [121.070826, 13.797396],
+        [121.069671, 13.788756],
+        [121.068614, 13.784653],
+        [121.068414, 13.783289],
+        [121.067719, 13.779974],
+        [121.067157, 13.778694],
+        [121.066538, 13.776472],
+        [121.065516, 13.771086],
+        [121.064645, 13.769559],
+        [121.064486, 13.769435],
+        [121.062422, 13.766693],
+        [121.061542, 13.765801],
+        [121.059245, 13.764360],
+        [121.058164, 13.763607],
+        [121.057813, 13.763285],
+        [121.057325, 13.762576],
+        [121.057051, 13.762613],
+        [121.056936, 13.763096],
+        [121.056786, 13.763505],
+        [121.052805, 13.769221],
+        [121.052274, 13.769859],
+        [121.050890, 13.771167],
+        [121.051630, 13.772159],
+        [121.052191, 13.773300],
+        [121.053073, 13.775257],
+        [121.053553, 13.776036],
+        [121.053569, 13.777372],
+        [121.053883, 13.778549],
+        [121.056510, 13.782186],
+        [121.056634, 13.782285],
+        [121.059425, 13.786685],
+        [121.063032, 13.794225],
+        [121.063511, 13.794700],
+        [121.064645, 13.796543],
+        [121.065019, 13.796815],
+        [121.065308, 13.796929],
+        [121.067947, 13.797071],
+        [121.070780, 13.797454],
+        [121.071016, 13.797288],
+        [121.071274, 13.797325],
+        [121.071327, 13.797594],
+        [121.071183, 13.798117],
+        [121.072814, 13.801351],
+        [, ],
+        [, ],
+        [, ],
+        [, ],
+        [, ],
+
+        
       ]
 
       this.map = new mapboxgl.Map({
@@ -391,7 +425,7 @@ export class HomePage {
         'type': 'line',
         'source': 'routecaptoliobatangasAM',
         'layout': {
-        'visibility': 'visible',
+        'visibility': 'none',
         'line-join': 'round',
         'line-cap': 'round'
         },
@@ -402,346 +436,373 @@ export class HomePage {
         });
         });
 
+      this.map.on('load', () => {
+        this.map.addSource('routebauanbatangas', {
+        'type': 'geojson',
+        'data': {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+        'type': 'LineString',
+        'coordinates': bauanbatangasAM
+        }
+        }
+        });
+        this.map.addLayer({
+        'id': 'routebauanbatangas',
+        'type': 'line',
+        'source': 'routebauanbatangas',
+        'layout': {
+        'visibility': 'none',
+        'line-join': 'round',
+        'line-cap': 'round'
+        },
+        'paint': {
+        'line-color': '#0000FF',
+        'line-width': 8
+        }
+        });
+        });
 
-        this.map.on('load', () => {
-          this.map.addSource('routebauanbatangas', {
+      this.map.on('load', () => {
+        this.map.addSource('routealangilanbatangasAM', {
           'type': 'geojson',
           'data': {
-          'type': 'Feature',
-          'properties': {},
-          'geometry': {
-          'type': 'LineString',
-          'coordinates': bauanbatangasAM
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+              'type': 'LineString',
+              'coordinates': alangilanbatangasAM
+            }
           }
-          }
-          });
-          this.map.addLayer({
-          'id': 'routebauanbatangas',
-          'type': 'line',
-          'source': 'routebauanbatangas',
-          'layout': {
-          'visibility': 'visible',
-          'line-join': 'round',
-          'line-cap': 'round'
-          },
-          'paint': {
-          'line-color': '#0000FF',
-          'line-width': 8
-          }
-          });
-          });
+        });
+        this.map.addLayer({
+        'id': 'routealangilanbatangasAM',
+        'type': 'line',
+        'source': 'routealangilanbatangasAM',
+        'layout': {
+          'visibility': 'none',
+        'line-join': 'round',
+        'line-cap': 'round'
+        },
+        'paint': {
+        'line-color': '#FFFF00',
+        'line-width': 8
+        }
+        });
+        });
 
-        this.map.on('load', () => {
-          this.map.addSource('routealangilanbatangasAM', {
+      this.map.on('load', () => {
+            this.map.addSource('routebalagtasbatangasAM', {
             'type': 'geojson',
             'data': {
-              'type': 'Feature',
-              'properties': {},
-              'geometry': {
-                'type': 'LineString',
-                'coordinates': alangilanbatangasAM
-              }
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'LineString',
+            'coordinates': balagtasbatangasAM
             }
-          });
-          this.map.addLayer({
-          'id': 'routealangilanbatangasAM',
-          'type': 'line',
-          'source': 'routealangilanbatangasAM',
-          'layout': {
-            'visibility': 'visible',
-          'line-join': 'round',
-          'line-cap': 'round'
-          },
-          'paint': {
-          'line-color': '#FFFF00',
-          'line-width': 8
-          }
-          });
-          });
+            }
+            });
+            this.map.addLayer({
+            'id': 'routebalagtasbatangasAM',
+            'type': 'line',
+            'source': 'routebalagtasbatangasAM',
+            'layout': {
+              'visibility': 'none',
+            'line-join': 'round',
+            'line-cap': 'round'
+            },
+            'paint': {
+            'line-color': '#00FF00',
+            'line-width': 8
+            }
+            });
+            });
 
-        this.map.on('load', () => {
-              this.map.addSource('routebalagtasbatangasAM', {
-              'type': 'geojson',
-              'data': {
-              'type': 'Feature',
-              'properties': {},
-              'geometry': {
-              'type': 'LineString',
-              'coordinates': balagtasbatangasAM
-              }
-              }
-              });
-              this.map.addLayer({
-              'id': 'routebalagtasbatangasAM',
-              'type': 'line',
-              'source': 'routebalagtasbatangasAM',
-              'layout': {
-                'visibility': 'visible',
-              'line-join': 'round',
-              'line-cap': 'round'
-              },
-              'paint': {
-              'line-color': '#00FF00',
-              'line-width': 8
-              }
-              });
-              });
+      this.map.on('load', () => {
+        this.map.addSource('routebaletebatangasAM', {
+        'type': 'geojson',
+        'data': {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+        'type': 'LineString',
+        'coordinates': baletebatangasAM
+        }
+        }
+        });
+        this.map.addLayer({
+        'id': 'routebaletebatangasAM',
+        'type': 'line',
+        'source': 'routebaletebatangasAM',
+        'layout': {
+          'visibility': 'none', 
+        'line-join': 'round',
+        'line-cap': 'round'
+        },
+        'paint': {
+        'line-color': '#ff0000',
+        'line-width': 8
+        }
+        });
+        });
 
-              this.map.on('load', () => {
-                this.map.addSource('routebaletebatangasAM', {
-                'type': 'geojson',
-                'data': {
-                'type': 'Feature',
-                'properties': {},
-                'geometry': {
-                'type': 'LineString',
-                'coordinates': baletebatangasAM
-                }
-                }
-                });
-                this.map.addLayer({
-                'id': 'routebaletebatangasAM',
-                'type': 'line',
-                'source': 'routebaletebatangasAM',
-                'layout': {
-                  'visibility': 'visible', 
-                'line-join': 'round',
-                'line-cap': 'round'
-                },
-                'paint': {
-                'line-color': '#ff0000',
-                'line-width': 8
-                }
-                });
-                });
+      this.map.on('load', () => {
+        this.map.addSource('routelipabatangasAM', {
+        'type': 'geojson',
+        'data': {
+        'type': 'Feature',
+        'properties': {},
+        'geometry': {
+        'type': 'LineString',
+        'coordinates': lipabatangasAM
+        }
+        }
+        });
+        this.map.addLayer({
+        'id': 'routelipabatangasAM',
+        'type': 'line',
+        'source': 'routelipabatangasAM',
+        'layout': {
+          'visibility': 'none', 
+        'line-join': 'round',
+        'line-cap': 'round'
+        },
+        'paint': {
+        'line-color': '#8F00FF',
+        'line-width': 8
+        }
+        });
+        });
   
 
-        const geojson = {
-          'type': 'FeatureCollection',
-          'features': [
-            { //STI
-              'type': 'Feature',
-              'properties': {
-                'iconSize': [35, 50]
-              },
-              'geometry': {
-              'type': 'Point',
-              'coordinates': [121.065032, 13.770170]
-            }
-          },
-          { //don ramos
+      const geojson = {
+        'type': 'FeatureCollection',
+        'features': [
+          { //STI
             'type': 'Feature',
             'properties': {
               'iconSize': [35, 50]
             },
             'geometry': {
             'type': 'Point',
-            'coordinates': [121.065980, 13.769548]
-            }
+            'coordinates': [121.065032, 13.770170]
+          }
+        },
+        { //don ramos
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //Alangilan
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.069071, 13.786282]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.065980, 13.769548]
+          }
+        },
+        { //Alangilan
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //terminal
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.061608, 13.790313]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.069071, 13.786282]
+          }
+        },
+        { //terminal
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //Lyceum
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.064694, 13.764838]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.061608, 13.790313]
+          }
+        },
+        { //Lyceum
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //hilltop
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.060179, 13.764846]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.064694, 13.764838]
+          }
+        },
+        { //hilltop
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //lawas
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.057443, 13.762650]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.060179, 13.764846]
+          }
+        },
+        { //lawas
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //nuciti
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.057444, 13.760331]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.057443, 13.762650]
+          }
+        },
+        { //nuciti
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //baymall
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.057248, 13.758949]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.057444, 13.760331]
+          }
+        },
+        { //baymall
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //andok's
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.057878, 13.758382]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.057248, 13.758949]
+          }
+        },
+        { //andok's
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //sm
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.0700965, 13.7558889],
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.057878, 13.758382]
+          }
+        },
+        { //sm
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //pandayan
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.058208, 13.757720]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.0700965, 13.7558889],
+          }
+        },
+        { //pandayan
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //waltermart
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.0565404, 13.7638308]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.058208, 13.757720]
+          }
+        },
+        { //waltermart
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //diversion
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.0510483, 13.7714565]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.0565404, 13.7638308]
+          }
+        },
+        { //diversion
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //bolbok
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.0501957, 13.7716639]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.0510483, 13.7714565]
+          }
+        },
+        { //bolbok
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //sports complex
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.044951, 13.775491]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.0501957, 13.7716639]
+          }
+        },
+        { //sports complex
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //rotonda
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.071162, 13.79827]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.044951, 13.775491]
+          }
+        },
+        { //rotonda
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //rizal ave
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.058261, 13.756500]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.071162, 13.79827]
+          }
+        },
+        { //rizal ave
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //plaza batangas'
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.059542, 13.755801]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.058261, 13.756500]
+          }
+        },
+        { //plaza batangas'
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //plaza bauan'
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.007472, 13.790346]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.059542, 13.755801]
+          }
+        },
+        { //plaza bauan'
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //diversion
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.051130, 13.771005]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.007472, 13.790346]
+          }
+        },
+        { //diversion
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
-          { //bauan citimart
-            'type': 'Feature',
-            'properties': {
-              'iconSize': [35, 50]
-            },
-            'geometry': {
-            'type': 'Point',
-            'coordinates': [121.011445, 13.790384]
-            }
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.051130, 13.771005]
+          }
+        },
+        { //bauan citimart
+          'type': 'Feature',
+          'properties': {
+            'iconSize': [35, 50]
           },
+          'geometry': {
+          'type': 'Point',
+          'coordinates': [121.011445, 13.790384]
+          }
+        },
 
 
-        ]
+      ]
       };
       
       for (const marker of geojson.features) {
@@ -769,14 +830,16 @@ export class HomePage {
         this.map.addControl(this.geolocate);      
     }
 
-    showJeepneyRoute(jeepney){
-      console.log(jeepney);
+    showJeepneyRoute(jeepney, check){
       var visibility = this.map.getLayoutProperty(jeepney, 'visibility');
+      var checkmark = document.getElementById(check);
 
       if (visibility === 'visible') {
       this.map.setLayoutProperty(jeepney, 'visibility', 'none');
+      checkmark.style.display = 'none';
       } else {
       this.map.setLayoutProperty(jeepney, 'visibility', 'visible');
+      checkmark.style.display = 'inline';
       }
     };
 
@@ -805,19 +868,8 @@ export class HomePage {
     this.route.navigate(['/fareguide']);
   }
 
-  userData(){
-    // this.authOb.currentUser.then( (user)=>{
-    //   const userID = user.uid;
-    //   console.log(user);
-    //   this.fsDB.collection('users').doc(userID).snapshotChanges().subscribe( res =>{
-    //     console.log(res);
-    //   })
-    // })
-      this.fsDB.collection("users").get().subscribe((ss) => {
-      ss.docs.forEach((doc) => {
-        this.users.push(doc.data());
-      });
-    });
+  recordPUV() {
+    this.route.navigate(['/record-puv']);
   }
 
   async laterAlert() {

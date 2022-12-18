@@ -1,19 +1,87 @@
-ion-card {
-    width: auto;
-    height: 90%;
+ion-content {
+    --background: #fac214;
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    --padding-top: 5%;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    &::part(background) {
+        bottom: 0%;
+    }
+  }
+
+ion-title {
+    font-family: 'Batangas';
+    font-size: x-large;
+    margin-left: -10%;
+}
+
+.contentdiv {
+    background-color: white;
+    border-radius: 20px;
+    padding: 2% 2% 4% 2%;
+}
+
+ion-col {
+    border-radius: 10px;
+    padding: 5%;
+    margin: 3px;
+    font-family: 'Batangas';
     text-align: center;
-    padding: 10%;
-    img {
-        width: 80%;
-        height: 50%;
-        margin-top: 20%;
-    }
-    h2 {
-        font-weight: bolder;
-        margin: 5%;
-    }
     p {
-        font-weight: bolder;
-        font-size: large;
+        margin-bottom: -10px;
+        margin-top: -5px;
+    }
+}
+
+.jeepneybtn {
+    background-color: #2bb8ad;
+    color: white;
+    font-size: xx-large;
+    img {
+        width: 80px;
+        height: auto;
+    }
+}
+
+.tricyclebtn {
+    background-color: #fac214;
+    color: white;
+    font-size: xx-large;
+    img {
+        width: 50px;
+        height: auto;
+    }
+}
+
+.busbtn {
+    background-color: #f77f22;
+    color: white;
+    font-size: xx-large;
+    img {
+        width: 80px;
+        height: auto;
+    }
+}
+
+.walkbtn {
+    background-color: #fef9a7;
+    color: #cd6a1e;
+    font-size: xx-large;
+    img {
+        width: 80px;
+        height: auto;
+    }
+}
+
+.scamsbtn {
+    background-color: #eb445a;
+    color: white;
+    font-size: x-large;
+    img {
+        width: 65px;
+        height: auto;
     }
 }

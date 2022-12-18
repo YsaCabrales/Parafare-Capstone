@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>PUV Records</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="records.length != 0">
+    <ion-item *ngFor="let record of records">
+      <ion-label>
+        <p>PUV Type: {{record.puvtype}}</p>
+        <p>Driver Name: {{record.drivername}}</p>
+        <p>License Plate: {{record.licenseplate}}</p>
+        <!-- <p>Date Recorded: {{ puv.recordedAt }}</p> -->
+      </ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-text *ngIf="!dataFound">No PUV records found.</ion-text>
+</ion-content>
