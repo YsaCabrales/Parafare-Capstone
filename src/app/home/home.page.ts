@@ -7,6 +7,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 import { MapboxServiceService } from './mapbox-service.service';
+import { GeocodingClient } from '@mapbox/mapbox-sdk';
 
 declare var mapboxgl: any;
 
@@ -37,23 +38,21 @@ export class HomePage {
     trackUserLocation: true
   });
   dataFound = true;
+  currentStyle: string = 'streets';
 
   constructor(
     private alertController: AlertController,
     private route: Router,
     private fsDB: AngularFirestore,
     private authOb: AngularFireAuth,
-    private mapboxService: MapboxServiceService
+    private mapboxService: MapboxServiceService,
+    // private geocodingClient: GeocodingClient
     ) {}
 
     addresses: string[] =  [];
     selectedAddress = null;
 
     ngOnInit() {
-      this.userData();
-    }
-
-    userData(){
     }
 
     ionViewDidEnter() {
@@ -577,7 +576,7 @@ export class HomePage {
         });
   
 
-      const geojson = {
+      const jeepneyhotspots = {
         'type': 'FeatureCollection',
         'features': [
           { //STI
@@ -800,17 +799,51 @@ export class HomePage {
           'coordinates': [121.011445, 13.790384]
           }
         },
-
-
       ]
       };
+
+      const tricyclehotspots = {
+        'type': 'FeatureCollection',
+        'features': [
+          { //GCH BSU
+            'type': 'Feature',
+            'properties': {
+              'iconSize': [35, 50]
+            },
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [121.069936, 13.786487]
+          }
+          },
+          { //DJC MHS OCP TODA
+            'type': 'Feature',
+            'properties': {
+              'iconSize': [35, 50]
+            },
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [121.0681735, 13.7802524]
+            }
+          },
+          { //BBB
+            'type': 'Feature',
+            'properties': {
+              'iconSize': [35, 50]
+            },
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [121.0709677, 13.7979922]
+            }
+          },
+        ]
+      };
       
-      for (const marker of geojson.features) {
+      for (const marker of jeepneyhotspots.features) {
         // Create a DOM element for each marker.
         const el = document.createElement('div');
         const width = marker.properties.iconSize[0];
         const height = marker.properties.iconSize[1];
-        el.className = 'marker';
+        el.className = 'jeepmarker';
         el.style.backgroundImage = `url(..//src//assets//icon//loadingunloading.png)`;
         el.style.width = `${width}px`;
         el.style.height = `${height}px`;
@@ -818,7 +851,29 @@ export class HomePage {
         // el.style.visibility = "hidden";
 
         const popup = new mapboxgl.Popup({ offset: 25 }).setText(
-          'Jeepneys here');
+          'Jeepney hotspot');
+         
+        // Add markers to the map.
+        new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(popup)
+        .addTo(this.map);
+      }
+
+      for (const marker of tricyclehotspots.features) {
+        // Create a DOM element for each marker.
+        const el = document.createElement('div');
+        const width = marker.properties.iconSize[0];
+        const height = marker.properties.iconSize[1];
+        el.className = 'trikemarker';
+        el.style.backgroundImage = `url(..//src//assets//icon//tricyclehotspot.png)`;
+        el.style.width = `${width}px`;
+        el.style.height = `${height}px`;
+        el.style.backgroundSize = '100%';
+        // el.style.visibility = "hidden";
+
+        const popup = new mapboxgl.Popup({ offset: 25 }).setText(
+          'Tricycle hotspot');
          
         // Add markers to the map.
         new mapboxgl.Marker(el)
@@ -828,6 +883,16 @@ export class HomePage {
       }
 
         this.map.addControl(this.geolocate);      
+    }
+
+    switchMapStyle() {
+      if (this.currentStyle === 'streets') {
+        this.map.setStyle('mapbox://styles/mapbox/satellite-v9');
+        this.currentStyle = 'satellite';
+      } else {
+        this.map.setStyle('mapbox://styles/mapbox/streets-v11');
+        this.currentStyle = 'streets';
+      }
     }
 
     showJeepneyRoute(jeepney, check){
@@ -842,6 +907,17 @@ export class HomePage {
       checkmark.style.display = 'inline';
       }
     };
+
+    // showmarkers(mode){
+    //   const el = document.getElementsByClassName(mode);
+    //   var visibility = this.map.getLayoutProperty(mode, 'visibility');
+
+    //   if (visibility === 'visible') {
+    //     el.style.visibility = "hidden";
+    //     } else {
+    //       el.style.visibility = "visible";
+    //     }
+    // }
 
     locateUser() {
       this.geolocate.trigger();

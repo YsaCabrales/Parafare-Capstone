@@ -13,18 +13,22 @@ h1{
 .header{
   margin-top: -15%;
   margin-left: -5%;
+  margin-bottom: 10%;
   img{
     max-height: 50%;
     max-width: 50%;
+    margin-top: 10%;
+    margin-left: 8%;
+    margin-bottom: -20%;
   }
-  ion-label{
-    margin-left: 5%;
     p{
       color: #f77f22;
       font-weight: bold;
       }
+      
   }
-  margin-bottom: 10%;
+ion-menu {
+  --max-width: 80%;
 }
 #ioncontent {
   --background: #2bb8ad;
@@ -60,6 +64,12 @@ h1{
 }
 .btglipa {
   color: #8F00FF;
+}
+.jeepneyhotspots {
+  color: #f77f22;
+}
+.tricyclehotspots {
+  color: #fac214;
 }
 
 ion-title {
