@@ -6,7 +6,7 @@ import { IonModal } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
-import { MapboxServiceService, Feature } from './mapbox-service.service';
+import { MapboxServiceService } from './mapbox-service.service';
 
 declare var mapboxgl: any;
 

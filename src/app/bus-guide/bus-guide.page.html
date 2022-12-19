@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar color="secondary">
     <ion-title>Bus Guide</ion-title>
     <ion-buttons slot="start">
@@ -7,13 +7,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content scrollY="false"> 
+  <div class="contentdiv">
   <ion-slides pager="true" class="sldatt">
     <ion-slide>
       <div class="slide">
         <img src="../../assets/images/bus.png" />
         <p>
-          Buses are convenient and affordable means of getting around the Philippines. Bus stations are frequently located in congested areas of cities. Buses frequently only depart when they are full, which means buses are not always on time. It won't be hard to figure out what to do because riding a bus is a fairly simple process.
+          Buses are a convenient and affordable means of getting around the Philippines. Bus stations are frequently located in congested areas of cities. Buses often only depart when they are full, which means buses are not always on time. Riding a bus is a fairly simple process.
         </p>
       </div>
     </ion-slide>
@@ -92,4 +93,5 @@
     </ion-slide>
 
   </ion-slides>
+  </div>
 </ion-content>

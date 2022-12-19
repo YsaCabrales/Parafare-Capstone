@@ -12,3 +12,16 @@ ion-list-header{
         }
     }
 }
+ion-title {
+    font-family: 'Batangas';
+    font-size: x-large;
+    margin-left: -10%;
+  }
+  .contentdiv {
+    background-color: white;
+    border-radius: 20px;
+    height: 100%;
+  }
+  ion-content {
+    --background: #2bb8ad;
+}

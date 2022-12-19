@@ -34,3 +34,34 @@ ion-slides {
   tr, td {
     border: 1px solid #2bb8ad;
   }
+
+  ion-title {
+    font-family: 'Batangas';
+    font-size: x-large;
+    margin-left: -10%;
+}
+
+.contentdiv {
+    background-color: white;
+    border-radius: 20px;
+    padding: 2% 2% 4% 2%;
+}
+ion-content {
+  --background: #fac214;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#fading-text {
+  animation: fadeInOut 3s ease-in-out;
+}

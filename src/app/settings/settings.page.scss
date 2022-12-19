@@ -26,3 +26,16 @@ ion-list-header{
     margin-top: 5px;
     padding-left: 5%;
 }
+ion-title {
+    font-family: 'Batangas';
+    font-size: x-large;
+    margin-left: -10%;
+  }
+  .contentdiv {
+    background-color: white;
+    border-radius: 20px;
+    height: 100%;
+  }
+  ion-content {
+    --background: #f77f22;
+}

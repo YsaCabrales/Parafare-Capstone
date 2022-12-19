@@ -1,15 +1,5 @@
 ion-content {
     --background: #fac214;
-    --offset-bottom: auto!important;
-    --overflow: hidden;
-    --padding-top: 5%;
-    overflow: auto;
-    &::-webkit-scrollbar {
-      display: none;
-    }
-    &::part(background) {
-        bottom: 0%;
-    }
   }
 
 ion-title {
@@ -21,7 +11,7 @@ ion-title {
 .contentdiv {
     background-color: white;
     border-radius: 20px;
-    padding: 2% 2% 4% 2%;
+    height: 100%;
 }
 
 ion-col {

@@ -37,3 +37,11 @@ ion-title {
   font-family: 'Batangas';
   font-size: xx-large;
 }
+.contentdiv {
+  background-color: white;
+  border-radius: 20px;
+  height: 100%;
+}
+ion-content {
+  --background: #f77f22;
+}
