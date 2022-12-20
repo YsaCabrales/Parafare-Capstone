@@ -39,6 +39,7 @@ export class HomePage {
   });
   dataFound = true;
   currentStyle: string = 'streets';
+  
 
   constructor(
     private alertController: AlertController,
@@ -53,13 +54,20 @@ export class HomePage {
     selectedAddress = null;
 
     ngOnInit() {
+      this.authOb.authState.subscribe(user => {
+        if (user) {
+          // User is authenticated, do something
+        } else {
+          // User is not authenticated, do something else
+        }
+      });
     }
 
     ionViewDidEnter() {
-      this.loadMap();
+      this.loadMap('mapbox://styles/mapbox/streets-v11');
     }
     
-    loadMap() {
+    loadMap(style) {
       const bounds = [
         [121.006948, 13.735103], // Southwest coordinates
         [121.085904, 13.798506] // Northeast coordinates
@@ -401,7 +409,7 @@ export class HomePage {
       this.map = new mapboxgl.Map({
         accessToken: 'pk.eyJ1IjoibmFneXlzYSIsImEiOiJjbGF3bWl2YTgwMnFwM3BtZmFldjk4OWdpIn0.b514twNwRSxm7TYe6rzBSg',
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: style,
         center: [121.0593968,13.7565229],
         zoom: 12.5,
         maxBounds: bounds
@@ -517,7 +525,7 @@ export class HomePage {
             'line-width': 8
             }
             });
-            });
+        });
 
       this.map.on('load', () => {
         this.map.addSource('routebaletebatangasAM', {
@@ -573,8 +581,7 @@ export class HomePage {
         'line-width': 8
         }
         });
-        });
-  
+        }); 
 
       const jeepneyhotspots = {
         'type': 'FeatureCollection',
@@ -835,6 +842,42 @@ export class HomePage {
             'coordinates': [121.0709677, 13.7979922]
             }
           },
+          { //Ku-lla Tinga
+            'type': 'Feature',
+            'properties': {
+              'iconSize': [35, 50]
+            },
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [121.0483727, 13.7713874]
+            }
+          },
+          { //PAC TODA
+            'type': 'Feature',
+            'properties': {
+              'iconSize': [35, 50]
+            },
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [121.0400046, 13.7570909]
+            }
+          }
+        ]
+      };
+
+      const busterminal = {
+        'type': 'FeatureCollection',
+        'features': [
+          { //terminal
+            'type': 'Feature',
+            'properties': {
+              'iconSize': [35, 50]
+            },
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [121.061769, 13.790172]
+          }
+          },
         ]
       };
       
@@ -882,42 +925,53 @@ export class HomePage {
         .addTo(this.map);
       }
 
+      for (const marker of busterminal.features) {  
+        // Create a DOM element for each marker.
+        const el = document.createElement('div');
+        const width = marker.properties.iconSize[0];
+        const height = marker.properties.iconSize[1];
+        el.className = 'busmarker';
+        el.style.backgroundImage = `url(..//src//assets//icon//buspin.png)`;
+        el.style.width = `${width}px`;
+        el.style.height = `${height}px`;
+        el.style.backgroundSize = '100%';
+
+        const popup = new mapboxgl.Popup({ offset: 25 }).setText(
+          'Bus Terminal');
+         
+        // Add markers to the map.
+        new mapboxgl.Marker(el)
+        .setLngLat(marker.geometry.coordinates)
+        .setPopup(popup)
+        .addTo(this.map);
+      }
+
         this.map.addControl(this.geolocate);      
     }
 
     switchMapStyle() {
       if (this.currentStyle === 'streets') {
-        this.map.setStyle('mapbox://styles/mapbox/satellite-v9');
+        this.loadMap('mapbox://styles/mapbox/satellite-v9');
+        // this.map.setStyle('mapbox://styles/mapbox/satellite-v9');
         this.currentStyle = 'satellite';
       } else {
-        this.map.setStyle('mapbox://styles/mapbox/streets-v11');
+        this.loadMap('mapbox://styles/mapbox/streets-v11');
+        // this.map.setStyle('mapbox://styles/mapbox/streets-v11');
         this.currentStyle = 'streets';
       }
     }
 
     showJeepneyRoute(jeepney, check){
       var visibility = this.map.getLayoutProperty(jeepney, 'visibility');
-      var checkmark = document.getElementById(check);
 
       if (visibility === 'visible') {
       this.map.setLayoutProperty(jeepney, 'visibility', 'none');
-      checkmark.style.display = 'none';
       } else {
       this.map.setLayoutProperty(jeepney, 'visibility', 'visible');
-      checkmark.style.display = 'inline';
       }
     };
 
-    // showmarkers(mode){
-    //   const el = document.getElementsByClassName(mode);
-    //   var visibility = this.map.getLayoutProperty(mode, 'visibility');
-
-    //   if (visibility === 'visible') {
-    //     el.style.visibility = "hidden";
-    //     } else {
-    //       el.style.visibility = "visible";
-    //     }
-    // }
+    
 
     locateUser() {
       this.geolocate.trigger();
@@ -973,4 +1027,6 @@ export class HomePage {
 
     await alert.present();
   }
+
+  
 }
